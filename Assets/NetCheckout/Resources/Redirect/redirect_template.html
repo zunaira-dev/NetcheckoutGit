@@ -1,0 +1,31 @@
+﻿<!--REQUIRED for Stripe redirecting to browser-->
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Unity WebGL Player</title>
+
+        <!-- Stripe Library for checkout process -->
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script>
+            // Redirect to Stripe Checkout
+            window.onload = function () {
+                var stripe = Stripe("STRIPE_PKEY");
+                
+                stripe.redirectToCheckout({
+                    sessionId: "STRIPE_SESSION_ID",
+                }).then(function (result) {
+                    document.getElementById("msg").innerHTML = result.error.message;
+                    console.log(result.error.message);
+                });
+            };
+        </script>
+    </head>
+
+  <body>
+      <h1 id="msg">Redirecting to Stripe Checkout...</h1>
+  </body>
+
+</html>

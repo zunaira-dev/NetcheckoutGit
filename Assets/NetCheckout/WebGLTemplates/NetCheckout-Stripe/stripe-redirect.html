@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player</title>
+
+    <!-- Stripe Library for checkout process -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+            // Redirect to Stripe Checkout
+            window.onload = function () {
+                var urlParams = getUrlParams();
+                var stripe = Stripe(urlParams["pkey"]);
+
+                stripe.redirectToCheckout({
+                    sessionId: urlParams["session_id"],
+                }).then(function (result) {
+                    document.getElementById("msg").innerHTML = result.error.message;
+                    console.log(result.error.message);
+                });
+            };
+
+            // Get parameters passed in from StripeClient.cs
+            function getUrlParams() {
+                var query = window.location.search.substring(1);
+                var pairs = query.split("&");
+                var params = [];
+                for (var i = 0; i < pairs.length; i++) {
+                    var pair = pairs[i].split("=");
+                    var key = decodeURIComponent(pair[0]);
+                    var value = decodeURIComponent(pair[1]);
+                    params[key] = value;
+                }
+                return params;
+            }
+    </script>
+</head>
+
+<body>
+    <h1 id="msg">Redirecting to Stripe Checkout...</h1>
+</body>
+
+</html>

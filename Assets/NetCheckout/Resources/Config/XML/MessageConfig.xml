@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Default messages for each window in the NetCheckout process. -->
+<MessageConfig>
+  <OrderWindow>
+    <Header>Buy Now</Header>
+    <Body>Click below to open the payment service window and authorize your purchase.</Body>
+    <ButtonTitle>Pay Now</ButtonTitle>
+  </OrderWindow>
+  
+  <WaitWindow>
+    <Header>Waiting for Approval</Header>
+    <Body>Approve your payment in the payment service window.</Body>
+    <ButtonTitle></ButtonTitle>
+  </WaitWindow>
+
+  <ConfirmWindow>
+    <Header>Confirm Purchase</Header>
+    <Body>Click below to complete your purchase.</Body>
+    <ButtonTitle>Confirm Purchase</ButtonTitle>
+  </ConfirmWindow>
+
+  <CompleteWindow>
+    <SuccessState>
+      <Header>Purchase Complete</Header>
+      <Body>Thank you for your purchase!</Body>
+      <ButtonTitle>OK</ButtonTitle>
+    </SuccessState>
+
+    <FailureState>
+      <Header>Purchase Failed</Header>
+      <Body>We're sorry, your purchase could not be completed.</Body>
+      <ButtonTitle>OK</ButtonTitle>
+    </FailureState>
+  </CompleteWindow>
+
+  <SubscribeWindow>
+    <Header>Subscribe Now</Header>
+    <Body>Click below to open the payment service window and authorize your subscription.</Body>
+    <ButtonTitle>Subscribe</ButtonTitle>
+  </SubscribeWindow>
+
+  <SubscribeCompleteWindow>
+    <Header>Subscription Activated</Header>
+    <Body>Thank you for your purchase!</Body>
+    <ButtonTitle>OK</ButtonTitle>
+  </SubscribeCompleteWindow>
+</MessageConfig>
